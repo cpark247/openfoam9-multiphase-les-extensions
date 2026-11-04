@@ -1,13 +1,13 @@
-# OpenFOAM-PhD-Extensions
+# openfoam9-multiphase-les-extensions
 
 Custom solvers, turbulence and population-balance models, boundary conditions and utilities that I developed during my doctoral research on gas–liquid flows in hydraulic machinery and diverging channels, at the Chair of Hydraulic Fluid Machinery, Ruhr University Bochum. Everything targets **OpenFOAM Foundation v9**.
 
 | Part | Where it was used |
 |---|---|
-| Multiphase solver family (`bubbleqmom-dev/`) | Two-phase LES in C. Park, M. Mansour, D. Thévenin, R. Skoda: *Passive Mitigation of Gas Accumulation by Surface Structures in Diverging Flow Channels: A Three-Dimensional Two-Phase Flow Simulation Study*, [SSRN preprint](https://papers.ssrn.com/sol3/papers.cfm?abstract_id=7649860); companion repo [diffuser-gas-accumulation](https://github.com/cpark247/diffuser-gas-accumulation) |
+| Multiphase solver family (`bubbleqmom-dev/`) | Two-phase LES in C. Park, M. Mansour, D. Thévenin, R. Skoda: *Passive Mitigation of Gas Accumulation by Surface Structures in Diverging Flow Channels: A Three-Dimensional Two-Phase Flow Simulation Study*, [SSRN preprint](http://dx.doi.org/10.2139/ssrn.7649860); companion repo [diffuser-gas-accumulation](https://github.com/cpark247/diffuser-gas-accumulation) |
 | Turbulence-model variants, single-phase solvers, `perturbU`, `periodicTimeVaryingMappedFixedValue` | Preliminary turbulence-modelling studies during the doctorate (not used for the paper's results): [turbulence-validation-OF9](https://github.com/cpark247/turbulence-validation-OF9) |
 
-The `porousBafflePressureAMI` boundary condition from the DLR / VDMA industry project on centrifugal pumps has moved to its own repository, [virtual-hole-method](https://github.com/cpark247/virtual-hole-method).
+The `porousBafflePressureAMI` boundary condition from the industry research project on centrifugal pumps has moved to its own repository, [virtual-hole-method](https://github.com/cpark247/virtual-hole-method).
 
 Licence: GPL-3.0 (derived from OpenFOAM).
 
@@ -35,7 +35,7 @@ From the preliminary turbulence-modelling work; see [turbulence-validation-OF9](
 | Model | Change relative to OpenFOAM-9 |
 |---|---|
 | `kOmegaSST_ext` | Standard k-ω SST that additionally writes its production term `Pk_` for analysis |
-| `kOmegaSSTSAS_ext` | k-ω SST-SAS (Egorov & Menter 2008) with a configurable exponent `nExponent` on the length-scale ratio L/L_vK in the Q_SAS source (default 2 = original model), and output of `L_`, `Lvk_`, `L_by_Lvk_` and `Qsas_` to diagnose when and where the model switches to scale-resolving behaviour |
+| `kOmegaSSTSAS_ext` | k-ω SST-SAS (Egorov & Menter 2008) with a configurable exponent `nExponent` on the length-scale ratio L/L_vK in the Q_SAS source (default 2 = original model; 0.5 = variant "SAS 2" after Jakirlić & Maduta 2015), and output of `L_`, `Lvk_`, `L_by_Lvk_` and `Qsas_` to diagnose when and where the model switches to scale-resolving behaviour. In the [variant study](https://github.com/cpark247/turbulence-validation-OF9/blob/HEAD/docs/sas-variants.md), no variant gave a correct mean velocity profile together with sustained resolved turbulence |
 | `kOmegaSSTIDDES`, `BSL_EARSM` | Work in progress: source included, **not registered/compiled** by default |
 
 ### Single-phase solvers with run-time statistics
@@ -71,8 +71,8 @@ Requires OpenFOAM Foundation v9 on Linux (developed on HPC clusters with the Int
 
 ```bash
 source /opt/openfoam9/etc/bashrc     # or your own OpenFOAM-9 installation
-git clone https://github.com/cpark247/OpenFOAM-PhD-Extensions.git
-cd OpenFOAM-PhD-Extensions
+git clone https://github.com/cpark247/openfoam9-multiphase-les-extensions.git
+cd openfoam9-multiphase-les-extensions
 ./Allwmake -j
 ```
 

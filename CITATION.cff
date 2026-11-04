@@ -1,12 +1,12 @@
 cff-version: 1.2.0
 message: "If you use this software, please cite this repository. If you use the multiphase solver (bubbleqmom-dev), please also cite the paper listed under references."
-title: "OpenFOAM-PhD-Extensions: solvers, models and boundary conditions for scale-resolving two-phase flow simulation in OpenFOAM v9"
+title: "openfoam9-multiphase-les-extensions: solvers, models and boundary conditions for scale-resolving two-phase flow simulation in OpenFOAM v9"
 type: software
 authors:
   - family-names: Park
     given-names: Changkyu
     affiliation: "Chair of Hydraulic Fluid Machinery, Ruhr University Bochum"
-repository-code: "https://github.com/cpark247/OpenFOAM-PhD-Extensions"
+repository-code: "https://github.com/cpark247/openfoam9-multiphase-les-extensions"
 license: GPL-3.0-or-later
 keywords:
   - OpenFOAM
@@ -29,4 +29,5 @@ references:
         given-names: Romuald
     journal: "SSRN preprint"
     year: 2026
-    url: "https://papers.ssrn.com/sol3/papers.cfm?abstract_id=7649860"
+    doi: "10.2139/ssrn.7649860"
+    url: "http://dx.doi.org/10.2139/ssrn.7649860"
